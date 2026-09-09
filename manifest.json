@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Google Scholar BibTeX Navigator",
+  "version": "1.2.0",
+  "description": "Navigate PDF filenames in Google Scholar, save BibTeX entries, and download them as a .bib file.",
+  "permissions": ["tabs", "storage", "clipboardWrite", "downloads"],
+  "host_permissions": [
+    "https://scholar.google.com/*",
+    "https://scholar.googleusercontent.com/*"
+  ],
+  "background": {"service_worker": "background.js"},
+  "action": {"default_popup": "popup.html", "default_title": "Scholar BibTeX Navigator"},
+  "content_scripts": [{
+    "matches": [
+      "https://scholar.google.com/*",
+      "https://scholar.googleusercontent.com/*"
+    ],
+    "js": ["content.js"],
+    "css": ["overlay.css"],
+    "run_at": "document_idle"
+  }]
+}
