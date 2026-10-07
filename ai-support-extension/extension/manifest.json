@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "AI Support Assistant",
+  "version": "1.0",
+  "action": {
+    "default_title": "AI Support Assistant"
+  },
+  "side_panel": {
+    "default_path": "popup.html"
+  },
+  "permissions": ["sidePanel"],
+  "background": {
+    "service_worker": "background.js"
+  }
+}

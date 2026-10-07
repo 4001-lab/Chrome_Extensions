@@ -1,0 +1,14 @@
+{
+  "name": "ai-support-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev"
+  },
+  "dependencies": {
+    "@google/genai": "^1.40.0",
+    "@supabase/supabase-js": "^2.95.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.2.4"
+  }
+}

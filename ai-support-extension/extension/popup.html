@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-icon">✨</div>
+      <h3>AI Support Assistant</h3>
+      <p class="subtitle">Powered by AI</p>
+    </header>
+
+    <div class="input-group">
+      <label>Customer Message</label>
+      <textarea
+        id="message"
+        placeholder="What's the customer asking about?"
+      ></textarea>
+    </div>
+
+    <div class="input-group">
+      <label>Order ID <span class="optional">(optional)</span></label>
+      <input id="orderId" type="text" placeholder="12345" />
+    </div>
+
+    <button id="generate" class="primary-btn">
+      <span id="loader" class="hidden"></span>
+      <span id="btnText">✨ Generate Reply</span>
+    </button>
+
+    <div id="outputContainer" class="hidden">
+      <div class="output-header">
+        <label>AI Response</label>
+        <button id="copyBtn" class="copy-btn">📋 Copy</button>
+      </div>
+      <div id="output" class="output-text"></div>
+    </div>
+
+    <div id="error" class="error hidden"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

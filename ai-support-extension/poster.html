@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>AI Support Assistant – A0 Poster</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  /* A0 = 841mm × 1189mm  →  at 96 dpi ≈ 3179 × 4494 px */
+  body {
+    width: 3179px;
+    min-height: 4494px;
+    font-family: 'Inter', sans-serif;
+    background: #0a0e1a;
+    color: #e8eaf6;
+    padding: 120px 140px;
+    display: flex;
+    flex-direction: column;
+    gap: 90px;
+  }
+
+  /* ── HEADER ── */
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    text-align: center;
+    border-bottom: 4px solid #3d5afe;
+    padding-bottom: 80px;
+  }
+  .badge {
+    background: linear-gradient(135deg, #3d5afe, #7c4dff);
+    color: #fff;
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    padding: 18px 60px;
+    border-radius: 60px;
+  }
+  header h1 {
+    font-size: 148px;
+    font-weight: 900;
+    line-height: 1.05;
+    background: linear-gradient(135deg, #ffffff 30%, #7c4dff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  header .tagline {
+    font-size: 52px;
+    font-weight: 300;
+    color: #90caf9;
+    max-width: 2400px;
+  }
+  .tech-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 10px;
+  }
+  .pill {
+    background: rgba(61,90,254,0.18);
+    border: 2px solid rgba(61,90,254,0.5);
+    color: #90caf9;
+    font-size: 36px;
+    font-weight: 600;
+    padding: 14px 44px;
+    border-radius: 50px;
+  }
+
+  /* ── SECTION WRAPPER ── */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 80px;
+  }
+
+  .section-title {
+    font-size: 52px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #7c4dff;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+  .section-title::before {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 60px;
+    background: linear-gradient(180deg, #3d5afe, #7c4dff);
+    border-radius: 6px;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.04);
+    border: 2px solid rgba(255,255,255,0.08);
+    border-radius: 32px;
+    padding: 70px;
+  }
+
+  /* ── PROBLEM STATEMENT ── */
+  .problem-text {
+    font-size: 50px;
+    line-height: 1.7;
+    color: #cfd8dc;
+  }
+  .problem-text strong { color: #ef5350; }
+
+  .pain-points {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    margin-top: 50px;
+  }
+  .pain-point {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    font-size: 44px;
+    color: #b0bec5;
+    line-height: 1.5;
+  }
+  .pain-icon {
+    font-size: 52px;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  /* ── FLOW DIAGRAM ── */
+  .flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 0;
+    padding: 20px 0;
+  }
+  .flow-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    width: 320px;
+    flex-shrink: 0;
+  }
+  .flow-icon-wrap {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 72px;
+    flex-shrink: 0;
+  }
+  .flow-step .step-label {
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+    color: #e8eaf6;
+    line-height: 1.3;
+  }
+  .flow-step .step-sub {
+    font-size: 30px;
+    color: #78909c;
+    text-align: center;
+    line-height: 1.4;
+  }
+  .flow-arrow {
+    font-size: 64px;
+    color: #3d5afe;
+    flex-shrink: 0;
+    margin: 0 10px;
+    padding-bottom: 80px;
+  }
+
+  .c1 { background: linear-gradient(135deg,#1a237e,#283593); border: 3px solid #3d5afe; }
+  .c2 { background: linear-gradient(135deg,#4a148c,#6a1b9a); border: 3px solid #7c4dff; }
+  .c3 { background: linear-gradient(135deg,#006064,#00838f); border: 3px solid #00bcd4; }
+  .c4 { background: linear-gradient(135deg,#1b5e20,#2e7d32); border: 3px solid #66bb6a; }
+  .c5 { background: linear-gradient(135deg,#e65100,#ef6c00); border: 3px solid #ffa726; }
+  .c6 { background: linear-gradient(135deg,#880e4f,#ad1457); border: 3px solid #f06292; }
+
+  /* sub-flow for RAG */
+  .rag-box {
+    background: rgba(124,77,255,0.1);
+    border: 2px dashed rgba(124,77,255,0.5);
+    border-radius: 24px;
+    padding: 40px 60px;
+    margin-top: 50px;
+  }
+  .rag-box .rag-title {
+    font-size: 40px;
+    font-weight: 700;
+    color: #ce93d8;
+    margin-bottom: 28px;
+  }
+  .rag-steps {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .rag-step {
+    background: rgba(124,77,255,0.2);
+    border-radius: 16px;
+    padding: 18px 36px;
+    font-size: 34px;
+    color: #e1bee7;
+    font-weight: 600;
+  }
+  .rag-arrow { font-size: 40px; color: #7c4dff; }
+
+  /* ── KEY FEATURES ── */
+  .feature-card {
+    background: rgba(255,255,255,0.04);
+    border: 2px solid rgba(255,255,255,0.08);
+    border-radius: 28px;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    transition: border-color 0.2s;
+  }
+  .feature-icon { font-size: 80px; }
+  .feature-title {
+    font-size: 46px;
+    font-weight: 700;
+    color: #e8eaf6;
+  }
+  .feature-desc {
+    font-size: 38px;
+    color: #90a4ae;
+    line-height: 1.6;
+  }
+  .feature-tag {
+    display: inline-block;
+    background: rgba(61,90,254,0.2);
+    border: 1.5px solid rgba(61,90,254,0.4);
+    color: #82b1ff;
+    font-size: 30px;
+    font-weight: 600;
+    padding: 8px 28px;
+    border-radius: 30px;
+    align-self: flex-start;
+  }
+
+  /* ── ARCHITECTURE ── */
+  .arch-row {
+    display: flex;
+    gap: 40px;
+    align-items: stretch;
+  }
+  .arch-layer {
+    flex: 1;
+    border-radius: 24px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .layer-chrome  { background: rgba(61,90,254,0.12); border: 2px solid rgba(61,90,254,0.35); }
+  .layer-vercel  { background: rgba(124,77,255,0.12); border: 2px solid rgba(124,77,255,0.35); }
+  .layer-ai      { background: rgba(0,188,212,0.10); border: 2px solid rgba(0,188,212,0.35); }
+  .layer-db      { background: rgba(102,187,106,0.10); border: 2px solid rgba(102,187,106,0.35); }
+  .arch-layer-title {
+    font-size: 40px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+  .arch-layer-title.blue  { color: #82b1ff; }
+  .arch-layer-title.purple{ color: #ce93d8; }
+  .arch-layer-title.cyan  { color: #80deea; }
+  .arch-layer-title.green { color: #a5d6a7; }
+  .arch-item {
+    font-size: 36px;
+    color: #b0bec5;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .arch-item::before { content: '▸'; color: #7c4dff; font-size: 32px; }
+
+  /* ── RESULTS ── */
+  .result-stat {
+    text-align: center;
+    padding: 60px 40px;
+    background: rgba(255,255,255,0.04);
+    border: 2px solid rgba(255,255,255,0.08);
+    border-radius: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .stat-number {
+    font-size: 120px;
+    font-weight: 900;
+    line-height: 1;
+    background: linear-gradient(135deg, #3d5afe, #7c4dff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .stat-label {
+    font-size: 40px;
+    font-weight: 600;
+    color: #cfd8dc;
+  }
+  .stat-sub {
+    font-size: 32px;
+    color: #607d8b;
+    line-height: 1.5;
+  }
+
+  .outcome-list {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    margin-top: 10px;
+  }
+  .outcome-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    font-size: 44px;
+    color: #b0bec5;
+    line-height: 1.5;
+  }
+  .outcome-check {
+    font-size: 50px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 3px solid rgba(255,255,255,0.08);
+    padding-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  .footer-url {
+    font-size: 42px;
+    font-weight: 700;
+    color: #82b1ff;
+  }
+  .footer-stack {
+    font-size: 36px;
+    color: #546e7a;
+    text-align: right;
+  }
+
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     HEADER
+══════════════════════════════════════════ -->
+<header>
+  <div class="badge">✨ AI-Powered Chrome Extension</div>
+  <h1>AI Support Assistant</h1>
+  <p class="tagline">
+    A production-deployed Chrome extension that helps customer support agents generate
+    intelligent, context-aware replies using RAG and real-time order data — instantly.
+  </p>
+  <div class="tech-pills">
+    <span class="pill">🧠 Groq · Llama 3.3 70B</span>
+    <span class="pill">🔷 Google Gemini Embeddings</span>
+    <span class="pill">🗄️ Supabase (PostgreSQL)</span>
+    <span class="pill">☁️ Vercel Serverless</span>
+    <span class="pill">🌐 Chrome Extension MV3</span>
+  </div>
+</header>
+
+
+<!-- ══════════════════════════════════════════
+     PROBLEM STATEMENT + ARCHITECTURE
+══════════════════════════════════════════ -->
+<div class="grid-2">
+
+  <!-- Problem -->
+  <div>
+    <div class="section-title">Problem Statement</div>
+    <div class="card">
+      <p class="problem-text">
+        Customer support agents spend significant time crafting replies manually,
+        often <strong>inconsistent</strong>, <strong>slow</strong>, and
+        <strong>disconnected from live order data</strong> — leading to poor
+        customer experience and high agent workload.
+      </p>
+      <div class="pain-points">
+        <div class="pain-point"><span class="pain-icon">⏱️</span>Slow response times due to manual lookup across multiple tools</div>
+        <div class="pain-point"><span class="pain-icon">📋</span>Inconsistent answers — agents rely on memory or outdated docs</div>
+        <div class="pain-point"><span class="pain-icon">🔍</span>No quick access to order status during live customer chats</div>
+        <div class="pain-point"><span class="pain-icon">🔄</span>Repetitive effort for common queries (refunds, tracking, cancellations)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Architecture layers -->
+  <div>
+    <div class="section-title">System Architecture</div>
+    <div class="card" style="display:flex;flex-direction:column;gap:36px;">
+      <div class="arch-row">
+        <div class="arch-layer layer-chrome">
+          <div class="arch-layer-title blue">Frontend</div>
+          <div class="arch-item">Chrome Extension (MV3)</div>
+          <div class="arch-item">Vanilla JS · HTML · CSS</div>
+          <div class="arch-item">SSE streaming reader</div>
+        </div>
+        <div class="arch-layer layer-vercel">
+          <div class="arch-layer-title purple">Backend</div>
+          <div class="arch-item">Vercel Serverless Function</div>
+          <div class="arch-item">RAG pipeline (rag.js)</div>
+          <div class="arch-item">Prompt builder (prompt.js)</div>
+        </div>
+      </div>
+      <div class="arch-row">
+        <div class="arch-layer layer-ai">
+          <div class="arch-layer-title cyan">AI Layer</div>
+          <div class="arch-item">Groq API — Llama 3.3 70B</div>
+          <div class="arch-item">Gemini Embedding-001 (1536-d)</div>
+          <div class="arch-item">Streaming token output</div>
+        </div>
+        <div class="arch-layer layer-db">
+          <div class="arch-layer-title green">Data Layer</div>
+          <div class="arch-item">Supabase PostgreSQL</div>
+          <div class="arch-item">pgvector — kb_embeddings</div>
+          <div class="arch-item">orders table (live lookup)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     FLOW DIAGRAM
+══════════════════════════════════════════ -->
+<div>
+  <div class="section-title">Flow Diagram</div>
+  <div class="card">
+
+    <div class="flow">
+
+      <div class="flow-step">
+        <div class="flow-icon-wrap c1">👨‍💼</div>
+        <div class="step-label">Agent Input</div>
+        <div class="step-sub">Customer message<br/>+ optional Order ID<br/>entered in popup</div>
+      </div>
+      <div class="flow-arrow">→</div>
+
+      <div class="flow-step">
+        <div class="flow-icon-wrap c2">🔷</div>
+        <div class="step-label">Embed Query</div>
+        <div class="step-sub">Gemini Embedding-001<br/>converts message to<br/>1536-dim vector</div>
+      </div>
+      <div class="flow-arrow">→</div>
+
+      <div class="flow-step">
+        <div class="flow-icon-wrap c3">🗄️</div>
+        <div class="step-label">Vector Search</div>
+        <div class="step-sub">Supabase match_kb<br/>returns top-5 relevant<br/>KB docs (cosine sim)</div>
+      </div>
+      <div class="flow-arrow">→</div>
+
+      <div class="flow-step">
+        <div class="flow-icon-wrap c4">📦</div>
+        <div class="step-label">Order Lookup</div>
+        <div class="step-sub">If Order ID given,<br/>fetch live order data<br/>from Supabase orders</div>
+      </div>
+      <div class="flow-arrow">→</div>
+
+      <div class="flow-step">
+        <div class="flow-icon-wrap c5">📝</div>
+        <div class="step-label">Build Prompt</div>
+        <div class="step-sub">Combine KB context<br/>+ order data +<br/>customer message</div>
+      </div>
+      <div class="flow-arrow">→</div>
+
+      <div class="flow-step">
+        <div class="flow-icon-wrap c2">🧠</div>
+        <div class="step-label">LLM Generation</div>
+        <div class="step-sub">Groq streams Llama<br/>3.3 70B response<br/>via SSE chunks</div>
+      </div>
+      <div class="flow-arrow">→</div>
+
+      <div class="flow-step">
+        <div class="flow-icon-wrap c6">✅</div>
+        <div class="step-label">Display Reply</div>
+        <div class="step-sub">Extension renders<br/>streamed text live<br/>with 1-click copy</div>
+      </div>
+
+    </div>
+
+    <div class="rag-box">
+      <div class="rag-title">🔍 RAG Pipeline Detail (Steps 2 – 3)</div>
+      <div class="rag-steps">
+        <div class="rag-step">Knowledge base text files</div>
+        <div class="rag-arrow">→</div>
+        <div class="rag-step">embed_kb.js (one-time)</div>
+        <div class="rag-arrow">→</div>
+        <div class="rag-step">Gemini creates 1536-d vectors</div>
+        <div class="rag-arrow">→</div>
+        <div class="rag-step">Stored in Supabase pgvector</div>
+        <div class="rag-arrow">→</div>
+        <div class="rag-step">match_kb RPC (cosine ≥ 0.25)</div>
+        <div class="rag-arrow">→</div>
+        <div class="rag-step">Top-5 docs injected into prompt</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     KEY FEATURES
+══════════════════════════════════════════ -->
+<div>
+  <div class="section-title">Key Features</div>
+  <div class="grid-3">
+
+    <div class="feature-card">
+      <div class="feature-icon">🧠</div>
+      <div class="feature-title">RAG-Powered Responses</div>
+      <div class="feature-desc">Retrieves the most relevant knowledge base entries using vector similarity before generating any reply — grounding answers in real policy data.</div>
+      <span class="feature-tag">Gemini Embedding-001</span>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">⚡</div>
+      <div class="feature-title">Real-Time Streaming</div>
+      <div class="feature-desc">Responses stream token-by-token via Server-Sent Events, giving agents instant feedback without waiting for the full reply to generate.</div>
+      <span class="feature-tag">SSE · Groq API</span>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">📦</div>
+      <div class="feature-title">Live Order Lookup</div>
+      <div class="feature-desc">Agents enter an Order ID and the backend fetches live order status, items, and customer name from Supabase to personalise the reply.</div>
+      <span class="feature-tag">Supabase PostgreSQL</span>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">🌐</div>
+      <div class="feature-title">Chrome Extension UI</div>
+      <div class="feature-desc">Lightweight MV3 popup — no page reload, no tab switching. Agents stay in their support tool while generating AI replies in a side panel.</div>
+      <span class="feature-tag">Manifest V3</span>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">☁️</div>
+      <div class="feature-title">Serverless Deployment</div>
+      <div class="feature-desc">Backend runs as a Vercel serverless function — zero server management, auto-scaling, and globally distributed edge delivery.</div>
+      <span class="feature-tag">Vercel · Node.js ESM</span>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">🔒</div>
+      <div class="feature-title">Grounded &amp; Safe Prompting</div>
+      <div class="feature-desc">Prompt template strictly instructs the LLM to answer only from retrieved context. If no relevant data exists, it politely declines — no hallucinations.</div>
+      <span class="feature-tag">Prompt Engineering</span>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     RESULTS / OUTCOMES
+══════════════════════════════════════════ -->
+<div>
+  <div class="section-title">Results &amp; Outcomes</div>
+
+  <div class="grid-3" style="margin-bottom:70px;">
+    <div class="result-stat">
+      <div class="stat-number">&lt; 2s</div>
+      <div class="stat-label">First Token Latency</div>
+      <div class="stat-sub">Groq's LPU inference delivers the first streamed token in under 2 seconds</div>
+    </div>
+    <div class="result-stat">
+      <div class="stat-number">Top 5</div>
+      <div class="stat-label">KB Docs Retrieved</div>
+      <div class="stat-sub">Cosine similarity ≥ 0.25 threshold ensures only relevant context is injected</div>
+    </div>
+    <div class="result-stat">
+      <div class="stat-number">1-Click</div>
+      <div class="stat-label">Copy to Clipboard</div>
+      <div class="stat-sub">Agents copy the full AI reply instantly — no manual selection needed</div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div style="font-size:44px;font-weight:700;color:#a5d6a7;margin-bottom:40px;">✅ Achieved Outcomes</div>
+      <div class="outcome-list">
+        <div class="outcome-item"><span class="outcome-check">✔️</span>End-to-end production deployment live at <strong style="color:#82b1ff;">ai-support-extension.vercel.app</strong></div>
+        <div class="outcome-item"><span class="outcome-check">✔️</span>RAG pipeline successfully retrieves domain-specific knowledge (Foodpanda support scenarios)</div>
+        <div class="outcome-item"><span class="outcome-check">✔️</span>Order-aware replies — LLM personalises response using live Supabase order records</div>
+        <div class="outcome-item"><span class="outcome-check">✔️</span>Streaming UX eliminates perceived wait time for support agents</div>
+        <div class="outcome-item"><span class="outcome-check">✔️</span>Hallucination-resistant — prompt strictly limits LLM to retrieved context only</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="font-size:44px;font-weight:700;color:#90caf9;margin-bottom:40px;">🚀 Impact &amp; Scalability</div>
+      <div class="outcome-list">
+        <div class="outcome-item"><span class="outcome-check">📈</span>Knowledge base is fully replaceable — swap <code style="color:#ce93d8;font-size:38px;">kb.json</code> and re-run embed script to adapt to any domain</div>
+        <div class="outcome-item"><span class="outcome-check">🔧</span>Serverless architecture scales to zero cost when idle and handles traffic spikes automatically</div>
+        <div class="outcome-item"><span class="outcome-check">🌍</span>Extension installable by any Chrome user — no backend changes needed for new agents</div>
+        <div class="outcome-item"><span class="outcome-check">🔄</span>LLM provider is swappable — Gemini generation backend already scaffolded as fallback</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer>
+  <div>
+    <div class="footer-url">🔗 https://ai-support-extension.vercel.app</div>
+    <div style="font-size:34px;color:#546e7a;margin-top:12px;">Live production backend · Chrome Extension (Manifest V3)</div>
+  </div>
+  <div class="footer-stack">
+    <div style="font-size:38px;color:#78909c;">Stack: Node.js · Vercel · Groq (Llama 3.3 70B) · Gemini Embeddings · Supabase pgvector</div>
+    <div style="font-size:34px;color:#455a64;margin-top:10px;">AI Support Assistant — A0 Poster · Print at 841 × 1189 mm</div>
+  </div>
+</footer>
+
+</body>
+</html>

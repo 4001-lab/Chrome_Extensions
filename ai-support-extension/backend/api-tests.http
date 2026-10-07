@@ -1,0 +1,22 @@
+### Test 1: Basic message
+POST http://localhost:3000/generate-reply
+Content-Type: application/json
+
+{
+  "message": "Hello there!"
+}
+
+### Test 2: With context
+POST https://ai-support-extension.vercel.app/api/generateReply
+Content-Type: application/json
+
+{
+  "message": "what is the return policy?"
+
+}
+
+### Test 3: Empty request
+POST http://localhost:3000/generate-reply
+Content-Type: application/json
+
+{}
